@@ -1,0 +1,42 @@
+{
+  "name": "trailpack-gulp",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "",
+  "author": {
+    "name": "trailsjs",
+    "email": "hello@trailsjs.io",
+    "url": ""
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "index.js",
+  "keywords": [
+    "trailpack",
+    "trails",
+    "trailjs"
+  ],
+  "dependencies": {
+    "trailpack": "latest"
+  },
+  "devDependencies": {
+    "eslint-config-trails": "latest",
+    "eslint": "^1.10",
+    "mocha": "^2.3"
+  },
+  "bundledDependencies": [
+    "trailpack"
+  ],
+  "scripts": {
+    "test": "eslint . && mocha"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "eslintConfig": {
+    "extends": "trails"
+  },
+  "repository": "https://github.com/YannBertrand/trailpack-gulp.git",
+  "license": "MIT"
+}
