@@ -1,23 +1,24 @@
 {
   "name": "trailpack-gulp",
   "version": "0.0.1",
-  "description": "",
+  "description": "Assets management from Trails project with gulp",
   "homepage": "",
   "author": {
     "name": "trailsjs",
     "email": "hello@trailsjs.io",
     "url": ""
   },
-  "files": [
-    "lib"
-  ],
+  "files": [],
   "main": "index.js",
   "keywords": [
     "trailpack",
     "trails",
-    "trailjs"
+    "trailjs",
+    "gulp"
   ],
   "dependencies": {
+    "gulp": "^3.9.0",
+    "lodash": "^3.10.1",
     "trailpack": "latest"
   },
   "devDependencies": {
