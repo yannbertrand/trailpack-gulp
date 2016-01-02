@@ -31,9 +31,15 @@ This trailpack uses standard [Gulp Configuration](https://github.com/gulpjs/gulp
 
 const gulp = require('gulp')
 const watch = require('gulp-watch')
+const sass = require('gulp-sass')
 
 const src = './assets'
-const dest = './.tmp'
+const dest = './.tmp/public'
+
+const sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded'
+}
 
 module.exports = {
 
@@ -41,9 +47,17 @@ module.exports = {
 
   tasks: {
     default: () => {
-      gulp
-        .src(src + '/**/*', { base: src })
-        .pipe(watch(src, { base: src }))
+      gulp.src(src + '/**/*.js')
+        .pipe(watch(src + '/**/*.js'))
+        .pipe(gulp.dest(dest))
+      
+      gulp.src(src + '/**/*.css')
+        .pipe(watch(src + '/**/*.css'))
+        .pipe(gulp.dest(dest))
+
+      gulp.src(src + '/**/*.scss')
+        .pipe(watch(src + '/**/*.scss'))
+        .pipe(sass(sassOptions))
         .pipe(gulp.dest(dest))
     }
   }
