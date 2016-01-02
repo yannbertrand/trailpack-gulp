@@ -29,18 +29,25 @@ This trailpack uses standard [Gulp Configuration](https://github.com/gulpjs/gulp
 ```js
 // config/gulp.js
 
+const gulp = require('gulp')
+const watch = require('gulp-watch')
+
+const src = './assets'
+const dest = './.tmp'
+
 module.exports = {
+
   defaultTaskName : 'default',
+
   tasks: {
-    'default' : function (next) {
-      //Do what you want with your assets
-      next()
-    },
-    'production' : function (next) {
-      //Do what you want with your assets
-      next()
+    default: () => {
+      gulp
+        .src(src + '/**/*', { base: src })
+        .pipe(watch(src, { base: src }))
+        .pipe(gulp.dest(dest))
     }
   }
+  
 }
 ```
 
