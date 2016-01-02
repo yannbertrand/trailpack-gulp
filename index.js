@@ -23,7 +23,7 @@ module.exports = class Gulp extends Trailpack {
     const config = this.app.config.gulp
     const tasks = config.tasks
 
-    _.each(tasks, (task, taskID) = > {
+    _.each(tasks, (task, taskID) => {
       gulp.task(taskID, task)
     })
 
@@ -34,12 +34,13 @@ module.exports = class Gulp extends Trailpack {
    * Run the default task
    */
   initialize() {
-    return new Promise((resolve, reject) = > {
-        gulp.run(this.app.config.gulp.defaultTaskName, function (err) {
-          if (err) return reject(err)
-          resolve()
-        })
-  })
+
+    return new Promise((resolve, reject) => {
+      gulp.run(this.app.config.gulp.defaultTaskName, function (err) {
+        if (err) return reject(err)
+        resolve()
+      })
+    })
   }
 
   constructor(app) {
