@@ -34,6 +34,7 @@ const watch = require('gulp-watch')
 const sass = require('gulp-sass')
 
 const src = './assets'
+const sassDest = './assets/css'
 const dest = './.tmp/public'
 
 const sassOptions = {
@@ -47,21 +48,18 @@ module.exports = {
 
   tasks: {
     default: () => {
-      gulp.src(src + '/**/*.js')
-        .pipe(watch(src + '/**/*.js'))
-        .pipe(gulp.dest(dest))
-      
-      gulp.src(src + '/**/*.css')
-        .pipe(watch(src + '/**/*.css'))
+      gulp
+        .src(src + '/**/*.(!scss)', { base: src })
+        .pipe(watch(src, { base: src }))
         .pipe(gulp.dest(dest))
 
-      gulp.src(src + '/**/*.scss')
-        .pipe(watch(src + '/**/*.scss'))
+      gulp.src(src + '/sass/**/*.scss')
+        .pipe(watch(src + '/sass/**/*.scss'))
         .pipe(sass(sassOptions))
-        .pipe(gulp.dest(dest))
+        .pipe(gulp.dest(sassDest))
     }
   }
-  
+
 }
 ```
 
