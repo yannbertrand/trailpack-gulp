@@ -5,6 +5,7 @@ logs
 
 # Runtime data
 pids
+/test/ok
 *.pid
 *.seed
 

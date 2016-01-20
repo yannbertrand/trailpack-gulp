@@ -14,7 +14,7 @@ const sassOptions = {
 
 module.exports = {
 
-  defaultTaskName : 'default',
+  defaultTaskName: 'default',
 
   tasks: {
     default: ['clean', 'compileCss', 'copyAssets', 'compileTemplate'],

@@ -1,4 +1,4 @@
-"use strict"
+'use strict'
 
 const Trailpack = require('trailpack')
 const _ = require('lodash')
@@ -36,7 +36,7 @@ module.exports = class Gulp extends Trailpack {
   initialize() {
 
     return new Promise((resolve, reject) => {
-      gulp.run(this.app.config.gulp.defaultTaskName, function (err) {
+      gulp.start(this.app.config.gulp.defaultTaskName, function (err) {
         if (err) return reject(err)
         resolve()
       })
