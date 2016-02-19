@@ -46,7 +46,6 @@ module.exports = class Gulp extends Trailpack {
   constructor(app) {
     super(app, {
       config: require('./config'),
-      api: require('./api'),
       pkg: require('./package')
     })
   }

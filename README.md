@@ -2,10 +2,18 @@
 
 :package: Gulp Trailpack.
 
-## 1. Install
-```sh
-$ npm install trailpack-gulp --save
+## 1. Intallation
+With yo : 
+
 ```
+npm install -g yo generator-trails
+yo trails:trailpack trailpack-gulp
+```
+
+With npm (you will have to create config file manually) :
+ 
+`npm install --save trailpack-gulp`
+
 
 ## 2. Configure
 

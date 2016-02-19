@@ -2,31 +2,42 @@
   "name": "trailpack-gulp",
   "version": "0.0.1",
   "description": "Assets management from Trails project with gulp",
-  "homepage": "",
+  "homepage": "https://github.com/YannBertrand/trailpack-gulp",
   "author": {
     "name": "trailsjs",
     "email": "hello@trailsjs.io",
     "url": ""
   },
-  "files": [],
   "main": "index.js",
   "keywords": [
     "trailpack",
     "trails",
     "trailjs",
-    "gulp"
+    "gulp",
+    "gulpjs"
+  ],
+  "contributors": [
+    {
+      "name": "Jimmy Aumard",
+      "email": "jimmy.aumard@gmail.com",
+      "url": "https://github.com/jaumard"
+    },
+    {
+      "name": "Yann Bertrand",
+      "url": "https://github.com/YannBertrand"
+    }
   ],
   "dependencies": {
-    "gulp": "^3.9.0",
-    "lodash": "^4.0.0",
-    "trailpack": "1.0.0-alpha-2"
+    "gulp": "^3.9.1",
+    "lodash": "^4.5.0",
+    "trailpack": "^1.0.0-beta-3"
   },
   "devDependencies": {
-    "eslint": "^2.0.0-beta.1",
-    "eslint-config-trails": "^1.0.1",
-    "mocha": "^2.3",
+    "eslint": "^2.1.0",
+    "eslint-config-trails": "^1.0.4",
+    "mocha": "^2.4.5",
     "smokesignals": "^1.0.2",
-    "trails": "^1.0.0-alpha-4"
+    "trails": "^1.0.0-beta-1"
   },
   "bundledDependencies": [
     "trailpack"
