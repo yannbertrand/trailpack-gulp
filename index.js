@@ -22,9 +22,49 @@ module.exports = class Gulp extends Trailpack {
   configure() {
     const config = this.app.config.gulp
     const tasks = config.tasks
+    const log = this.app.config.log.logger.info
 
     _.each(tasks, (task, taskID) => {
-      gulp.task(taskID, task)
+      if (_.isArray(task) || _.isFunction(task)) {
+        const userTask = task
+        //gulp.task(taskID, userTask)
+
+        if (_.isFunction(task)) {
+          if (task.length > 0){
+            gulp.task(taskID, (done) => {
+              log('gulp: running ' + taskID)
+              return userTask(done)
+            })
+          }
+          else {
+            gulp.task(taskID, () => {
+              log('gulp: running ' + taskID)
+              return userTask()
+            })
+          }
+        }
+        else {
+          gulp.task(taskID, userTask)
+        }
+
+      }
+      else {
+        const userTask = task.task
+        //gulp.task(taskID, task.dependOf, userTask)
+
+        if (task.task.length > 0) {
+          gulp.task(taskID, task.dependOf, (done) => {
+            log('gulp: running ' + (task.description || taskID))
+            return userTask(done)
+          })
+        }
+        else {
+          gulp.task(taskID, task.dependOf, () => {
+            log('gulp: running ' + (task.description || taskID))
+            return userTask()
+          })
+        }
+      }
     })
 
     return Promise.resolve()
@@ -34,9 +74,8 @@ module.exports = class Gulp extends Trailpack {
    * Run the default task
    */
   initialize() {
-
     return new Promise((resolve, reject) => {
-      gulp.start(this.app.config.gulp.defaultTaskName, function (err) {
+      gulp.start(this.app.config.gulp.defaultTaskName, (err) => {
         if (err) return reject(err)
         resolve()
       })
@@ -46,7 +85,8 @@ module.exports = class Gulp extends Trailpack {
   constructor(app) {
     super(app, {
       config: require('./config'),
-      pkg: require('./package')
+      pkg: require('./package'),
+      utils: require('./lib/utils')
     })
   }
 }

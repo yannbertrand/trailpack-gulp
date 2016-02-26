@@ -1,6 +1,6 @@
 {
   "name": "trailpack-gulp",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Assets management from Trails project with gulp",
   "homepage": "https://github.com/YannBertrand/trailpack-gulp",
   "author": {
@@ -30,20 +30,22 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "lodash": "^4.5.0",
+    "replace-in-file": "^1.0.2",
     "trailpack": "^1.0.0-beta-3"
   },
   "devDependencies": {
-    "eslint": "^2.1.0",
+    "eslint": "^2.2.0",
     "eslint-config-trails": "^1.0.4",
     "mocha": "^2.4.5",
     "smokesignals": "^1.0.2",
-    "trails": "^1.0.0-beta-1"
+    "trails": "^1.0.0-beta-1",
+    "winston": "^2.2.0"
   },
   "bundledDependencies": [
     "trailpack"
   ],
   "scripts": {
-    "test": "eslint . && mocha"
+    "test": "eslint --fix . && mocha"
   },
   "engines": {
     "node": ">= 4.0.0"

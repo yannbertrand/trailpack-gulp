@@ -2,6 +2,7 @@
 const _ = require('lodash')
 const smokesignals = require('smokesignals')
 const fs = require('fs')
+const winston = require('winston')
 
 const App = {
   pkg: {
@@ -19,6 +20,18 @@ const App = {
           })
         }
       }
+    },
+    log: {
+      logger: new winston.Logger({
+        level: 'debug',
+        exitOnError: false,
+        transports: [
+          new (winston.transports.Console)({
+            prettyPrint: true,
+            colorize: true
+          })
+        ]
+      })
     },
     main: {
       packs: [
