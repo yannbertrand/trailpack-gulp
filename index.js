@@ -59,7 +59,7 @@ module.exports = class Gulp extends Trailpack {
           })
         }
         else {
-          gulp.task(taskID, task.dependOf, () => {
+          gulp.task(taskID, task.dependsOf, () => {
             log('gulp: running ' + (task.description || taskID))
             return userTask()
           })
