@@ -35,7 +35,6 @@ const App = {
     },
     main: {
       packs: [
-        smokesignals.Trailpack,
         require('../') // trailpack-gulp
       ]
     },
